@@ -4,7 +4,5 @@ function initMap() {
 }
 
 function start_map_population() {
-  load_outage_data().then(() => {
-    console.log("Now Running This");
-  });
+  load_outage_data();
 }

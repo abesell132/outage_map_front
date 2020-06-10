@@ -1,13 +1,11 @@
 function load_outage_data() {
-  return new Promise((resolve, reject) => {
-    get_township_data().then((res) => {
+  get_township_data().then((res) => {
+    console.log(res);
+    get_zipcode_data().then((res) => {
       console.log(res);
-      get_zipcode_data().then((res) => {
+      get_county_data().then((res) => {
         console.log(res);
-        get_county_data().then((res) => {
-          console.log(res);
-          resolve();
-        });
+        resolve();
       });
     });
   });

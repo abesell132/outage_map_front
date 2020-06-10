@@ -5,13 +5,16 @@ jQuery("select").on("change", function () {
   });
   if (this.value == "Township") {
     currentlySelectedLayer = "Township";
+    map_view = "township_data";
     add_region_layers(1);
   } else if (this.value == "County") {
-    add_region_layers(1);
     currentlySelectedLayer = "County";
-  } else if (this.value == "Zip Code") {
+    map_view = "county_data";
     add_region_layers(1);
+  } else if (this.value == "Zip Code") {
     currentlySelectedLayer = "Zipcode";
+    map_view = "zipcode_data";
+    add_region_layers(1);
   }
   jQuery("#viewName").html(currentlySelectedLayer);
 });

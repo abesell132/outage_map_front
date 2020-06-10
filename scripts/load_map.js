@@ -36,7 +36,7 @@ function load_map() {
 }
 
 function add_region_layers(reload) {
-  if (reload) {
+  if (!reload) {
     set_region_styles();
     set_region_events();
   }

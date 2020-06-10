@@ -36,6 +36,11 @@ function load_map() {
 }
 
 function add_data_layers() {
+  map.data.setStyle({
+    fillColor: "rgb(0,0,0,.60)",
+    strokeWeight: 1,
+    strokeColor: "black",
+  });
   switch (map_view) {
     case "county":
       map.data.addGeoJson(county_data);

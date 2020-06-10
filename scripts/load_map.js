@@ -95,12 +95,12 @@ function remove_outage_markers() {
   marker_clusters = [];
 }
 
-function create_marker_clusters() {
+function create_marker_clusters(marker_locations) {
   let markers = [];
-  for (let outageIndex = 0; outageIndex < markerLocationArray.length; outageIndex++) {
-    for (let numOutageIndex = 0; numOutageIndex < markerLocationArray[outageIndex].num_cust; numOutageIndex++) {
+  for (let outageIndex = 0; outageIndex < marker_locations.length; outageIndex++) {
+    for (let numOutageIndex = 0; numOutageIndex < marker_locations[outageIndex].num_cust; numOutageIndex++) {
       let marker = new google.maps.Marker({
-        position: { lat: markerLocationArray[outageIndex].coordinates[1], lng: markerLocationArray[outageIndex].coordinates[0] },
+        position: { lat: marker_locations[outageIndex].coordinates[1], lng: marker_locations[outageIndex].coordinates[0] },
         icon: new google.maps.MarkerImage(
           "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png",
           new google.maps.Size(48, 48),

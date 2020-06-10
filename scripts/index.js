@@ -1,4 +1,5 @@
-var map, township_data, zipcode_data, county_data, marker_clusters;
+var map, township_data, zipcode_data, county_data;
+var marker_clusters = [];
 var map_view = "county_data";
 
 function initMap() {

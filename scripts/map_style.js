@@ -64,6 +64,9 @@ let map_style = [
   },
 ];
 
+var myDirectory = "https://uppco.com/wp-content/themes/bb-theme-child";
+var images = myDirectory + "/img/m";
+
 var cluster_styles = [
   {
     url: images + "1.png",

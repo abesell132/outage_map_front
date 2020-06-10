@@ -1,14 +1,14 @@
 function load_outage_data() {
-  get_township_data().then((res) => {
-    console.log(res);
-    get_zipcode_data().then((res) => {
-      console.log(res);
-      get_county_data().then((res) => {
-        console.log(res);
-        resolve();
-      });
-    });
-  });
+  //   get_township_data().then((res) => {
+  //     console.log(res);
+  //     get_zipcode_data().then((res) => {
+  //       console.log(res);
+  //       get_county_data().then((res) => {
+  //         console.log(res);
+  //         resolve();
+  //       });
+  //     });
+  //   });
 }
 
 function get_township_data() {

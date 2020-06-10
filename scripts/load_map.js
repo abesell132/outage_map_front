@@ -63,7 +63,9 @@ function set_region_styles() {
 }
 
 function add_outages_to_map() {
-  remove_outage_markers();
+  if (marker_clusters) {
+    remove_outage_markers();
+  }
   console.log(this[map_view]);
 
   for (let a = 0; a < this[map_view].features.length; a++) {

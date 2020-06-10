@@ -33,7 +33,9 @@ function set_region_events() {
     });
   });
   map.data.addListener("click", function (event) {
-    close_info_windows();
+    if (info_windows) {
+      close_info_windows();
+    }
     let info_window_content = get_info_window_content(event.feature);
   });
 }

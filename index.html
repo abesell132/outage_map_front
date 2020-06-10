@@ -1,0 +1,50 @@
+<link rel="stylesheet" href="styles/index.css" />
+
+<div id="map-error"></div>
+<div id="header">
+  <div class="header-image">
+    <a href="https://www.uppco.com/"> <img src="https://www.uppco.com/wp-content/uploads/2018/11/uppco-logo-white.png" /></a>Electrical Outage Map
+  </div>
+  <div class="uppco-link">
+    <a href="https://www.uppco.com/">Back to uppco.com</a>
+  </div>
+</div>
+<div class="outage-page-content" id="outage-page-content">
+  <div id="tool-content">
+    <div style="text-align: right; margin-bottom: 25px;">
+      <select
+        >eve
+        <option value="County">County</option>
+        <option value="Zip Code">Zip Code</option>
+        <option value="Township">Township</option>
+      </select>
+    </div>
+
+    <div class="table-head">
+      <div>
+        <div id="viewName">County</div>
+        <div># Out</div>
+        <div># Served</div>
+        <div>% On</div>
+      </div>
+    </div>
+    <div class="table-body"></div>
+    <div class="table-foot">
+      <div>
+        <div id="viewName">Total</div>
+        <div id="total-outages">0</div>
+        <div id="total-served">42550</div>
+        <div id="total-percent-out">100%</div>
+      </div>
+    </div>
+  </div>
+  <div id="map"></div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js" integrity="sha256-T/f7Sju1ZfNNfBh7skWn0idlCBcI3RwdLSS4/I7NQKQ=" crossorigin="anonymous"></script>
+<script src="scripts/index.js"></script>
+<script src="scripts/map_style.js"></script>
+<script src="scripts/load_map.js"></script>
+<script src="scripts/load_outage_data.js"></script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDEAFg_7qiZTcljxh15UTvLUaR1qG20hxE&libraries=geometry&callback=initMap" async defer></script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>

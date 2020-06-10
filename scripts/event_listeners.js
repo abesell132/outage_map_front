@@ -121,8 +121,8 @@ function get_info_window_content(feature) {
 function get_feature_from_event(feature_key) {
   for (let a = 0; a < this[map_view].features.length; a++) {
     console.log(this[map_view].features[a]);
-    if (this[map_view].features[a].properties.GAVPrimaryKey == feature_key) {
-      return this[map_view].features[a];
-    }
+    // if (this[map_view].features[a].properties.GAVPrimaryKey == feature_key) {
+    //   return this[map_view].features[a];
+    // }
   }
 }

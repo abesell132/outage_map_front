@@ -77,7 +77,7 @@ function get_info_window_content(feature) {
   }
   // console.log(data_feature)
 
-  if (currentlySelectedLayer === "County") {
+  if (map_view === "county_data") {
     content =
       '<div style="font-size:15px; padding:5px 10px 3px 0; font-weight:Bold">' +
       data_feature.properties.LABEL +
@@ -89,7 +89,7 @@ function get_info_window_content(feature) {
       data_feature.properties.TotalCustomers +
       "</strong></div>";
     return content;
-  } else if (currentlySelectedLayer === "Zipcode") {
+  } else if (map_view === "zipcode_data") {
     // let percentOut = data_feature.PercentOut === null ? 0 : data_feature.PercentOut
     content =
       '<div style="font-size:15px; padding:5px 10px 3px 0; font-weight:Bold">' +
@@ -102,7 +102,7 @@ function get_info_window_content(feature) {
       data_feature.properties.TotalCustomers +
       "</strong></div>";
     return content;
-  } else if (currentlySelectedLayer === "Township") {
+  } else if (map_view === "township_data") {
     // let percentOut = data_feature.PercentOut === null ? 0 : data_feature.PercentOut
     content =
       '<div style="font-size:15px; padding:5px 10px 3px 0; font-weight:Bold">' +

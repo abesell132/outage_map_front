@@ -62,21 +62,6 @@ function set_region_styles() {
   });
 }
 
-function set_region_events() {
-  map.data.addListener("mouseover", function (event) {
-    map.data.overrideStyle(event.feature, {
-      strokeWeight: 3,
-      strokeColor: "#007D44",
-    });
-  });
-  map.data.addListener("mouseout", function (event) {
-    map.data.overrideStyle(event.feature, {
-      strokeWeight: 1,
-      strokeColor: "black",
-    });
-  });
-}
-
 function add_outages_to_map() {
   remove_outage_markers();
   console.log(this[map_view]);

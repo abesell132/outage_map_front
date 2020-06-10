@@ -34,3 +34,18 @@ function load_map() {
     });
   }
 }
+
+function add_data_layers() {
+  switch (map_view) {
+    case "county":
+      map.data.addGeoJson(county_data);
+      console.log("county");
+      break;
+    case "zipcode":
+      console.log("zipcode");
+      break;
+    case "township":
+      console.log("township");
+      break;
+  }
+}

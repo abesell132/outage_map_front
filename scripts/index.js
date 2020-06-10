@@ -1,16 +1,17 @@
+var map, township_data, zipcode_data, county_data;
+var map_view = "county";
+
 function initMap() {
   load_map();
-  get_township_data().then((res) => {
-    console.log(res);
-    get_zipcode_data().then((res2) => {
-      console.log(res2);
-      get_county_data().then((res3) => {
-        console.log(res3);
-      });
-    });
-  });
+  start_map_population();
 }
 
 function start_map_population() {
-  load_outage_data();
+  get_township_data().then(() => {
+    get_zipcode_data().then(() => {
+      get_county_data().then(() => {
+        add_data_layers();
+      });
+    });
+  });
 }

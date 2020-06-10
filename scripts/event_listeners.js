@@ -65,8 +65,8 @@ function reset_click_styles() {
 }
 
 function get_info_window_content(feature) {
-  let feature_key = feature.getProperty("GAVPrimaryKey");
-  let data_feature = get_feature_from_event(feature_key);
+  let feature_NAME = feature.getProperty("GAVPrimaryKey");
+  let data_feature = get_feature_from_event(feature_NAME);
 
   let content;
   var percentOut = parseFloat(100 - (data_feature.properties.CustomersOut / data_feature.properties.TotalCustomers) * 100).toFixed(1);
@@ -118,11 +118,10 @@ function get_info_window_content(feature) {
   }
 }
 
-function get_feature_from_event(feature_key) {
+function get_feature_from_event(feature_NAME) {
   for (let a = 0; a < this[map_view].features.length; a++) {
-    console.log(this[map_view].features[a]);
-    // if (this[map_view].features[a].properties.GAVPrimaryKey == feature_key) {
-    //   return this[map_view].features[a];
-    // }
+    if (this[map_view].features[a].properties.NAME == feature_NAME) {
+      return this[map_view].features[a];
+    }
   }
 }

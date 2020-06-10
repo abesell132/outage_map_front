@@ -37,6 +37,12 @@ function set_region_events() {
       close_info_windows();
     }
     let info_window_content = get_info_window_content(event.feature);
+    let infowindow = new google.maps.InfoWindow();
+    infowindow.setContent(info_window_content);
+    infowindow.setPosition(new google.maps.LatLng(latitude, longitude));
+    infowindow.setOptions({
+      pixelOffset: new google.maps.Size(0, -5),
+    });
   });
 }
 
@@ -59,5 +65,63 @@ function reset_click_styles() {
 }
 
 function get_info_window_content(feature) {
-  console.log(feature);
+  let feature_key = feature.getProperty("GAVPrimaryKey");
+  let data_feature = get_feature_from_event(feature_key);
+
+  let content;
+  var percentOut = parseFloat(100 - (data_feature.getProperty("CustomersOut") / data_feature.getProperty("TotalCustomers")) * 100).toFixed(1);
+  if (data_feature.getProperty("CustomersOut") > 0) {
+    if (percentOut > 99.9) {
+      percentOut = 99.9;
+    }
+  }
+  // console.log(data_feature)
+
+  if (currentlySelectedLayer === "County") {
+    content =
+      '<div style="font-size:15px; padding:5px 10px 3px 0; font-weight:Bold">' +
+      data_feature.getProperty("LABEL") +
+      "</div><div>Customers Out: <strong>" +
+      data_feature.getProperty("CustomersOut") +
+      "</strong></div><div>Percent On: <strong>" +
+      percentOut +
+      "%</strong></div><div>Customers Served: <strong>" +
+      data_feature.getProperty("TotalCustomers") +
+      "</strong></div>";
+    return content;
+  } else if (currentlySelectedLayer === "Zipcode") {
+    // let percentOut = data_feature.PercentOut === null ? 0 : data_feature.PercentOut
+    content =
+      '<div style="font-size:15px; padding:5px 10px 3px 0; font-weight:Bold">' +
+      data_feature.getProperty("ZCTA5CE10") +
+      "</div><div>Customers Out: <strong>" +
+      data_feature.getProperty("CustomersOut") +
+      "</strong></div><div>Percent On: <strong>" +
+      percentOut +
+      "%</strong></div><div>Customers Served: <strong>" +
+      data_feature.getProperty("TotalCustomers") +
+      "</strong></div>";
+    return content;
+  } else if (currentlySelectedLayer === "Township") {
+    // let percentOut = data_feature.PercentOut === null ? 0 : data_feature.PercentOut
+    content =
+      '<div style="font-size:15px; padding:5px 10px 3px 0; font-weight:Bold">' +
+      data_feature.getProperty("LABEL") +
+      "</div><div>Customers Out: <strong>" +
+      data_feature.getProperty("CustomersOut") +
+      "</strong></div><div>Percent On: <strong>" +
+      percentOut +
+      "%</strong></div><div>Customers Served: <strong>" +
+      data_feature.getProperty("TotalCustomers") +
+      "</strong></div>";
+    return content;
+  }
+}
+
+function get_data_from_event(feature_key) {
+  for (let a = 0; a < $[map_view].features.length; a++) {
+    if ($[map_view].features[a].properties.GAVPrimaryKey == feature_key) {
+      return $[map_view].features[a];
+    }
+  }
 }

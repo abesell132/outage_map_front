@@ -79,6 +79,7 @@ function set_region_events() {
 
 function add_outages_to_map() {
   remove_outage_markers();
+  console.log(this[map_view]);
 
   for (let a = 0; a < this[map_view].features.length; a++) {
     if (this[map_view].features[a].properties.outages) {

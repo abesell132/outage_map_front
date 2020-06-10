@@ -1,6 +1,15 @@
 function initMap() {
   load_map();
-  start_map_population();
+  get_township_data().then((res) => {
+    console.log(res);
+    get_zipcode_data().then((res) => {
+      console.log(res);
+      get_county_data().then((res) => {
+        console.log(res);
+        resolve();
+      });
+    });
+  });
 }
 
 function start_map_population() {

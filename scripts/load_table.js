@@ -1,4 +1,7 @@
 function add_outages_to_table() {
+  let totalOut = 0;
+  let totalServed = 0;
+
   jQuery(".table-body").html("");
   if (map_view === "county_data") {
     console.log(this[map_view].features);

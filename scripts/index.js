@@ -17,6 +17,7 @@ function start_map_population(reload) {
           // Do something on reload
         }
         add_outages_to_map();
+        add_outages_to_table();
       });
     });
   });

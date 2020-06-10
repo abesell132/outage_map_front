@@ -39,13 +39,12 @@ function add_data_layers() {
   switch (map_view) {
     case "county":
       map.data.addGeoJson(county_data);
-      console.log("county");
       break;
     case "zipcode":
-      console.log("zipcode");
+      map.data.addGeoJson(zipcode_data);
       break;
     case "township":
-      console.log("township");
+      map.data.addGeoJson(township_data);
       break;
   }
 }

@@ -65,7 +65,7 @@ function reset_click_styles() {
 }
 
 function get_info_window_content(feature) {
-  let feature_key = feature.properties.GAVPrimaryKey;
+  let feature_key = feature.getProperty("GAVPrimaryKey");
   let data_feature = get_feature_from_event(feature_key);
 
   let content;

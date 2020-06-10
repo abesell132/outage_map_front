@@ -1,21 +1,18 @@
 function load_outage_data() {
   return new Promise((resolve, reject) => {
-    load_data_files(resolve);
-  });
-}
-
-function load_data_files(callback) {
-  get_township_data().then((res) => {
-    console.log(res);
-    get_zipcode_data().then((res) => {
+    get_township_data().then((res) => {
       console.log(res);
-      get_county_data().then((res) => {
+      get_zipcode_data().then((res) => {
         console.log(res);
-        callback();
+        get_county_data().then((res) => {
+          console.log(res);
+          resolve();
+        });
       });
     });
   });
 }
+
 function get_township_data() {
   axios.get("https://www.uppco.com/_uppco-outage-files/sorted/sorted_uppco_township.json").then((res) => {
     console.log(res);

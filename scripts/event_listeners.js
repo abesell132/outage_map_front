@@ -65,12 +65,12 @@ function reset_click_styles() {
 }
 
 function get_info_window_content(feature) {
-  let feature_key = feature.getProperty("GAVPrimaryKey");
+  let feature_key = feature.properties.GAVPrimaryKey;
   let data_feature = get_feature_from_event(feature_key);
 
   let content;
-  var percentOut = parseFloat(100 - (data_feature.getProperty("CustomersOut") / data_feature.getProperty("TotalCustomers")) * 100).toFixed(1);
-  if (data_feature.getProperty("CustomersOut") > 0) {
+  var percentOut = parseFloat(100 - (data_feature.properties.CustomersOut / data_feature.properties.TotalCustomers) * 100).toFixed(1);
+  if (data_feature.properties.CustomersOut > 0) {
     if (percentOut > 99.9) {
       percentOut = 99.9;
     }
@@ -80,39 +80,39 @@ function get_info_window_content(feature) {
   if (currentlySelectedLayer === "County") {
     content =
       '<div style="font-size:15px; padding:5px 10px 3px 0; font-weight:Bold">' +
-      data_feature.getProperty("LABEL") +
+      data_feature.properties.LABEL +
       "</div><div>Customers Out: <strong>" +
-      data_feature.getProperty("CustomersOut") +
+      data_feature.properties.CustomersOut +
       "</strong></div><div>Percent On: <strong>" +
       percentOut +
       "%</strong></div><div>Customers Served: <strong>" +
-      data_feature.getProperty("TotalCustomers") +
+      data_feature.properties.TotalCustomers +
       "</strong></div>";
     return content;
   } else if (currentlySelectedLayer === "Zipcode") {
     // let percentOut = data_feature.PercentOut === null ? 0 : data_feature.PercentOut
     content =
       '<div style="font-size:15px; padding:5px 10px 3px 0; font-weight:Bold">' +
-      data_feature.getProperty("ZCTA5CE10") +
+      data_feature.properties.ZCTA5CE10 +
       "</div><div>Customers Out: <strong>" +
-      data_feature.getProperty("CustomersOut") +
+      data_feature.properties.CustomersOut +
       "</strong></div><div>Percent On: <strong>" +
       percentOut +
       "%</strong></div><div>Customers Served: <strong>" +
-      data_feature.getProperty("TotalCustomers") +
+      data_feature.properties.TotalCustomers +
       "</strong></div>";
     return content;
   } else if (currentlySelectedLayer === "Township") {
     // let percentOut = data_feature.PercentOut === null ? 0 : data_feature.PercentOut
     content =
       '<div style="font-size:15px; padding:5px 10px 3px 0; font-weight:Bold">' +
-      data_feature.getProperty("LABEL") +
+      data_feature.properties.LABEL +
       "</div><div>Customers Out: <strong>" +
-      data_feature.getProperty("CustomersOut") +
+      data_feature.properties.CustomersOut +
       "</strong></div><div>Percent On: <strong>" +
       percentOut +
       "%</strong></div><div>Customers Served: <strong>" +
-      data_feature.getProperty("TotalCustomers") +
+      data_feature.properties.TotalCustomers +
       "</strong></div>";
     return content;
   }

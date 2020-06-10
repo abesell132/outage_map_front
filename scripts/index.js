@@ -11,7 +11,7 @@ function start_map_population(reload) {
     get_zipcode_data().then(() => {
       get_county_data().then(() => {
         if (!reload) {
-          add_data_layers();
+          add_region_layers();
         }
       });
     });

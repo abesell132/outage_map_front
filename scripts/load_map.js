@@ -35,12 +35,12 @@ function load_map() {
   }
 }
 
-function add_data_layers() {
-  map.data.setStyle({
-    fillColor: "rgb(0,0,0,.60)",
-    strokeWeight: 1,
-    strokeColor: "black",
-  });
+function add_region_layers(reload) {
+  if (reload) {
+    set_region_styles();
+    set_region_events();
+  }
+
   switch (map_view) {
     case "county":
       map.data.addGeoJson(county_data);
@@ -52,4 +52,27 @@ function add_data_layers() {
       map.data.addGeoJson(township_data);
       break;
   }
+}
+
+function set_region_styles() {
+  map.data.setStyle({
+    fillColor: "rgb(0,0,0,.60)",
+    strokeWeight: 1,
+    strokeColor: "black",
+  });
+}
+
+function set_region_events() {
+  map.data.addListener("mouseover", function (event) {
+    map.data.overrideStyle(event.feature, {
+      strokeWeight: 3,
+      strokeColor: "#007D44",
+    });
+  });
+  map.data.addListener("mouseout", function (event) {
+    map.data.overrideStyle(event.feature, {
+      strokeWeight: 1,
+      strokeColor: "black",
+    });
+  });
 }

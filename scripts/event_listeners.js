@@ -119,9 +119,9 @@ function get_info_window_content(feature) {
 }
 
 function get_feature_from_event(feature_key) {
-  for (let a = 0; a < $[map_view].features.length; a++) {
-    if ($[map_view].features[a].properties.GAVPrimaryKey == feature_key) {
-      return $[map_view].features[a];
+  for (let a = 0; a < this[map_view].features.length; a++) {
+    if (this[map_view].features[a].properties.GAVPrimaryKey == feature_key) {
+      return this[map_view].features[a];
     }
   }
 }

@@ -1,4 +1,4 @@
-var map, township_data, zipcode_data, county_data;
+var map, township_data, zipcode_data, county_data, info_window_feature;
 var marker_clusters = [];
 var info_windows = [];
 var click_features = [];
@@ -17,7 +17,7 @@ function start_map_population(reload) {
         if (!reload) {
           add_region_layers();
         } else {
-          open_info_window(info_window_coords.lat, info_window_coords.lng, click_features[0], 1);
+          open_info_window(info_window_coords.lat, info_window_coords.lng, info_window_feature, 1);
         }
         checkMapError();
         add_outages_to_map();

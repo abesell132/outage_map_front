@@ -61,10 +61,11 @@ function open_info_window(latitude, longitude, feature) {
     pixelOffset: new google.maps.Size(0, -5),
   });
   info_windows.push(infowindow);
-  info_info_window_coords = {
+  info_window_coords = {
     lat: latitude,
     lng: longitude,
   };
+  info_window_feature = get_feature_from_event(feature);
   // Wait .1s and then open Info Window
   info_windows[0].open(map);
 
@@ -73,25 +74,7 @@ function open_info_window(latitude, longitude, feature) {
   });
 }
 
-function close_info_windows() {
-  reset_click_styles();
-  for (let a = 0; a < info_windows.length; a++) {
-    info_windows[a].close();
-  }
-  info_windows = [];
-}
-
-function reset_click_styles() {
-  map.data.overrideStyle(click_features[0], {
-    fillColor: "rgba(0,0,0,.6)",
-    strokeWeight: 1,
-    strokeColor: "rgba(0,0,0,.6)",
-    zIndex: 1,
-  });
-  click_features = [];
-}
-
-function get_info_window_content(feature) {
+function get_info_window_content(feature, reload) {
   let feature_NAME = feature.getProperty("NAME");
   let data_feature = get_feature_from_event(feature_NAME);
 
@@ -142,6 +125,24 @@ function get_info_window_content(feature) {
       "</strong></div>";
     return content;
   }
+}
+function close_info_windows() {
+  reset_click_styles();
+  for (let a = 0; a < info_windows.length; a++) {
+    info_windows[a].close();
+  }
+  info_windows = [];
+  info_window_feature = undefined;
+}
+
+function reset_click_styles() {
+  map.data.overrideStyle(click_features[0], {
+    fillColor: "rgba(0,0,0,.6)",
+    strokeWeight: 1,
+    strokeColor: "rgba(0,0,0,.6)",
+    zIndex: 1,
+  });
+  click_features = [];
 }
 
 function get_feature_from_event(feature_NAME) {

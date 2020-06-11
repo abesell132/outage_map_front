@@ -72,7 +72,9 @@ function add_outages_to_map() {
       create_marker_clusters(this[map_view].features[a].properties.outages);
     }
   }
-  jQuery(window).trigger("resize");
+  setTimeout(function () {
+    jQuery(window).trigger("resize");
+  }, 1000);
 }
 
 function remove_outage_markers() {

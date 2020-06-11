@@ -32,6 +32,7 @@ function load_map() {
       fullscreenControl: false,
       styles: map_style,
     });
+    map.setCenter({ lat: 45.62, lng: -87.84 });
   }
 }
 

@@ -61,7 +61,7 @@ function set_region_events() {
     info_windows[0].open(map);
 
     infowindow.addListener("closeclick", function () {
-      closeInfoWindows();
+      close_info_windows();
     });
   });
 }

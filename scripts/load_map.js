@@ -106,6 +106,6 @@ function create_marker_clusters(marker_locations) {
   marker_clusters.push(markerCluster);
 
   google.maps.event.addListener(markerCluster, "clusterclick", function () {
-    closeInfoWindows();
+    close_info_windows();
   });
 }

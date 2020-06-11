@@ -33,6 +33,13 @@ function set_region_events() {
     });
   });
   map.data.addListener("click", function (event) {
+    event.feature.overrideStyle({
+      strokeWeight: 1,
+      fillColor: "black",
+      fillOpacity: 1,
+    });
+    click_features.push(event.feature);
+
     let latitude = event.latLng.lat();
     let longitude = event.latLng.lng();
     if (info_windows) {

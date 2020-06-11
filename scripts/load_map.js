@@ -76,10 +76,24 @@ function add_outages_to_map() {
   //   jQuery(window).trigger("resize");
   // }, 1000);
 
-  if (window.innerWidth < 1100 && window.innerWidth > 600) {
-    map.setZoom(7.6);
-  } else if (window.innerWidth < 600) {
-    map.setZoom(7.1);
+  if (is_safari()) {
+    if (window.innerWidth > 1300) {
+      map.setZoom(8.1);
+    } else if (window.innerWidth < 3100 && window.innerWidth > 600) {
+      map.setZoom(7.6);
+    } else if (window.innerWidth < 600) {
+      map.setZoom(7.1);
+    }
+  }
+}
+function is_safari() {
+  var ua = navigator.userAgent.toLowerCase();
+  if (ua.indexOf("safari") != -1) {
+    if (ua.indexOf("chrome") > -1) {
+      return false;
+    } else {
+      return true;
+    }
   }
 }
 

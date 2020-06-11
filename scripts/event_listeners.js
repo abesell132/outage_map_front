@@ -29,14 +29,13 @@ function set_region_events() {
   map.data.addListener("mouseout", function (event) {
     map.data.overrideStyle(event.feature, {
       strokeWeight: 1,
-      strokeColor: "rgba(0,0,0)",
+      strokeColor: "rgba(0,0,0,.6)",
     });
   });
   map.data.addListener("click", function (event) {
     map.data.overrideStyle(event.feature, {
       strokeWeight: 1,
-      fillColor: "rgba(0,0,0)",
-      fillOpacity: 1,
+      fillColor: "rgba(0,0,0,1)",
     });
     click_features.push(event.feature);
 
@@ -72,10 +71,9 @@ function close_info_windows() {
 
 function reset_click_styles() {
   map.data.overrideStyle(click_features[0], {
-    fillColor: "rgba(0,0,0)",
-    fillOpacity: 0.35,
+    fillColor: "rgba(0,0,0,.6)",
     strokeWeight: 1,
-    strokeColor: "rgba(0,0,0)",
+    strokeColor: "rgba(0,0,0,.6)",
     zIndex: 1,
   });
   click_features = [];

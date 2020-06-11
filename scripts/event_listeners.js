@@ -32,6 +32,11 @@ function set_region_events() {
       strokeColor: "rgba(0,0,0,.6)",
     });
   });
+  map.addListener("click", function () {
+    if (info_windows) {
+      close_info_windows();
+    }
+  });
   map.data.addListener("click", function (event) {
     map.data.overrideStyle(event.feature, {
       strokeWeight: 1,

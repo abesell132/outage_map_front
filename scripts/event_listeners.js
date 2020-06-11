@@ -47,7 +47,7 @@ function set_region_events() {
     });
     info_windows.push(infowindow);
     // Wait .1s and then open Info Window
-    administrativeDataLayerInfoWindows[0].open(map);
+    info_windows[0].open(map);
   });
 }
 

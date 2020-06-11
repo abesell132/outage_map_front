@@ -72,6 +72,7 @@ function add_outages_to_map() {
       create_marker_clusters(this[map_view].features[a].properties.outages);
     }
   }
+  jQuery(window).trigger("resize");
 }
 
 function remove_outage_markers() {
@@ -100,7 +101,6 @@ function create_marker_clusters(marker_locations) {
 
   let markerCluster = new MarkerClusterer(map, markers, {
     styles: cluster_styles,
-    minZoom: 8,
   });
 
   marker_clusters.push(markerCluster);

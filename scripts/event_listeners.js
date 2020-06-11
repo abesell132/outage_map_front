@@ -72,7 +72,7 @@ function close_info_windows() {
 
 function reset_click_styles() {
   map.data.overrideStyle(click_features[0], {
-    fillColor: "rgb(0,0,0,.60)",
+    fillColor: "black",
     fillOpacity: 0.35,
     strokeWeight: 1,
     strokeColor: "black",

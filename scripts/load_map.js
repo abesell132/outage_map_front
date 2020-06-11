@@ -56,7 +56,7 @@ function add_region_layers(reload) {
 
 function set_region_styles() {
   map.data.setStyle({
-    fillColor: "rgb(0,0,0,.60)",
+    fillColor: "black",
     fillOpacity: 0.35,
     strokeWeight: 1,
     strokeColor: "black",

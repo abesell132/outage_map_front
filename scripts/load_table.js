@@ -84,4 +84,13 @@ function add_outages_to_table() {
       totalServed += this[map_view].features[a].properties.TotalCustomers;
     }
   }
+
+  var percentOut = parseFloat(100 - (totalOut / totalServed) * 100).toFixed(1);
+  if (totalOut > 0 && percentOut > 99.9) {
+    percentOut = 99.9;
+  }
+
+  jQuery(".table-foot #total-outages").html(totalOut);
+  jQuery(".table-foot #total-served").html(totalServed);
+  jQuery(".table-foot #total-percent-out").html(percentOut + "%");
 }

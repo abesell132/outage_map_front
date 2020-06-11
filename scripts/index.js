@@ -6,7 +6,6 @@ var info_window_coords = {};
 var map_view = "county_data";
 
 function initMap() {
-  load_map();
   start_map_population(0);
 }
 
@@ -15,6 +14,7 @@ function start_map_population(reload) {
     get_zipcode_data().then(() => {
       get_county_data().then(() => {
         if (!reload) {
+          load_map();
           add_region_layers();
           checkMapError();
         } else {

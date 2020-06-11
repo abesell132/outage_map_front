@@ -49,11 +49,11 @@ function set_region_events() {
     open_info_window(latitude, longitude, event.feature);
   });
 }
-function open_info_window(latitude, longitude, feature) {
+function open_info_window(latitude, longitude, feature, reload = 0) {
   if (info_windows) {
     close_info_windows();
   }
-  let info_window_content = get_info_window_content(feature);
+  let info_window_content = get_info_window_content(feature, reload);
   let infowindow = new google.maps.InfoWindow();
   infowindow.setContent(info_window_content);
   infowindow.setPosition(new google.maps.LatLng(latitude, longitude));
@@ -75,7 +75,12 @@ function open_info_window(latitude, longitude, feature) {
 }
 
 function get_info_window_content(feature, reload) {
-  let feature_NAME = feature.getProperty("NAME");
+  let feature_NAME;
+  if (!reload) {
+    feature_NAME = feature.getProperty("NAME");
+  } else {
+    feature_NAME = feature.properties.NAME;
+  }
   let data_feature = get_feature_from_event(feature_NAME);
 
   let content;

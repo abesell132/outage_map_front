@@ -38,7 +38,7 @@ function set_region_events() {
     if (info_windows) {
       close_info_windows();
     }
-    let info_window_content = get_info_window_content(latitude, longitude, event.feature);
+    let info_window_content = get_info_window_content(event.feature);
     let infowindow = new google.maps.InfoWindow();
     infowindow.setContent(info_window_content);
     infowindow.setPosition(new google.maps.LatLng(latitude, longitude));

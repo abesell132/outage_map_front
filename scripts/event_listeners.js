@@ -48,6 +48,10 @@ function set_region_events() {
     info_windows.push(infowindow);
     // Wait .1s and then open Info Window
     info_windows[0].open(map);
+
+    infowindow.addListener("closeclick", function () {
+      closeInfoWindows();
+    });
   });
 }
 

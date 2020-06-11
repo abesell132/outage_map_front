@@ -9,18 +9,21 @@ jQuery("select").on("change", function () {
     add_region_layers(1);
     add_outages_to_table();
     close_info_windows();
+    reset_zoom();
   } else if (this.value == "County") {
     currentlySelectedLayer = "County";
     map_view = "county_data";
     add_region_layers(1);
     add_outages_to_table();
     close_info_windows();
+    reset_zoom();
   } else if (this.value == "Zip Code") {
     currentlySelectedLayer = "Zipcode";
     map_view = "zipcode_data";
     add_region_layers(1);
     add_outages_to_table();
     close_info_windows();
+    reset_zoom();
   }
   jQuery("#viewName").html(currentlySelectedLayer);
 });

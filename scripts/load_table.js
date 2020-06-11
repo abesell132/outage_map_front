@@ -1,5 +1,4 @@
 function add_outages_to_table() {
-  alert("Adding tables");
   let totalOut = 0;
   let totalServed = 0;
 

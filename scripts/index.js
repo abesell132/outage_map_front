@@ -33,7 +33,7 @@ function start_map_population(reload) {
 setInterval(function () {
   start_map_population(1);
   checkMapError();
-}, 40000);
+}, 120000);
 
 function checkMapError() {
   jQuery.getJSON("https://www.uppco.com/_uppco-outage-files/sorted/map_error.json", function (data) {

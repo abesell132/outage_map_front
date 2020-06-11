@@ -17,9 +17,8 @@ function start_map_population(reload) {
         if (!reload) {
           add_region_layers();
         } else {
-          close_info_windows();
+          close_info_windows(0);
           open_info_window(info_window_coords.lat, info_window_coords.lng, info_window_feature, 1);
-          info_window_feature = undefined;
         }
         checkMapError();
         add_outages_to_map();

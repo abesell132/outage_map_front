@@ -137,12 +137,15 @@ function get_info_window_content(feature, reload) {
     return content;
   }
 }
-function close_info_windows() {
+function close_info_windows(click = 1) {
   reset_click_styles();
   for (let a = 0; a < info_windows.length; a++) {
     info_windows[a].close();
   }
   info_windows = [];
+  if (click) {
+    info_window_feature = undefined;
+  }
 }
 
 function reset_click_styles() {

@@ -33,7 +33,11 @@ function set_region_events() {
     });
   });
   map.data.addListener("click", function (event) {
-    console.log(event.feature);
+    map.data.overrideStyle(event.feature, {
+      strokeWeight: 1,
+      fillColor: "black",
+      fillOpacity: 1,
+    });
     click_features.push(event.feature);
 
     let latitude = event.latLng.lat();

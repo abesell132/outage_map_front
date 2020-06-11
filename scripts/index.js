@@ -16,6 +16,7 @@ function start_map_population(reload) {
       get_county_data().then(() => {
         if (!reload) {
           add_region_layers();
+          checkMapError();
         } else {
           close_info_windows(0);
           if (info_window_feature) {
@@ -30,14 +31,8 @@ function start_map_population(reload) {
   });
 }
 setInterval(function () {
-  var today = new Date();
-  var date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-  var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  var dateTime = date + " " + time;
-
-  console.log("Fetching new outages at: " + dateTime);
-
   start_map_population(1);
+  checkMapError();
 }, 40000);
 
 function checkMapError() {

@@ -74,7 +74,7 @@ function add_outages_to_map() {
 
   if (window.innerWidth > 1300) {
     map.setZoom(8.1);
-  } else if (window.innerWidth < 3100 && window.innerWidth > 600) {
+  } else if (window.innerWidth < 1300 && window.innerWidth > 600) {
     map.setZoom(7.6);
   } else if (window.innerWidth < 600) {
     map.setZoom(7.1);

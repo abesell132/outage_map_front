@@ -45,6 +45,9 @@ function set_region_events() {
     infowindow.setOptions({
       pixelOffset: new google.maps.Size(0, -5),
     });
+    info_windows.push(infowindow);
+    // Wait .1s and then open Info Window
+    administrativeDataLayerInfoWindows[0].open(map);
   });
 }
 

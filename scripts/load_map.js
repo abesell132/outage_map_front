@@ -72,10 +72,15 @@ function add_outages_to_map() {
       create_marker_clusters(this[map_view].features[a].properties.outages);
     }
   }
-  setTimeout(function () {
-    jQuery(window).trigger("resize");
+  // setTimeout(function () {
+  //   jQuery(window).trigger("resize");
+  // }, 1000);
+
+  if (window.innerWidth < 1100 && window.innerWidth > 600) {
+    map.setZoom(7.6);
+  } else if (window.innerWidth < 600) {
     map.setZoom(7.1);
-  }, 1000);
+  }
 }
 
 function remove_outage_markers() {

@@ -100,6 +100,7 @@ function create_marker_clusters(marker_locations) {
 
   let markerCluster = new MarkerClusterer(map, markers, {
     styles: cluster_styles,
+    minZoom: 8,
   });
 
   marker_clusters.push(markerCluster);

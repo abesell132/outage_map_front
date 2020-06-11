@@ -50,7 +50,6 @@ function set_region_events() {
   });
 }
 function open_info_window(latitude, longitude, feature, reload = 0) {
-  console.log(feature);
   if (info_windows) {
     close_info_windows();
   }
@@ -71,8 +70,7 @@ function open_info_window(latitude, longitude, feature, reload = 0) {
   } else {
     info_window_feature = feature;
   }
-  console.log(info_window_feature);
-  // Wait .1s and then open Info Window
+
   info_windows[0].open(map);
 
   infowindow.addListener("closeclick", function () {

@@ -169,11 +169,11 @@ body {
 @media (max-width: 850px) {
   #tool-content {
     position: absolute;
-    bottom: 20px;
-    width: calc(100% - 80px) !important;
+    bottom: 25px;
+    width: calc(100% - 20px) !important;
     z-index: 222;
-    height: 250px;
-    padding: 10px;
+    height: 200px;
+    left: 10px;
     top: auto;
     transform: translate(0, 0);
   }

@@ -75,13 +75,16 @@ function add_outages_to_map() {
 }
 
 function reset_zoom() {
-  if (window.innerWidth > 1300) {
-    map.setZoom(8.1);
-  } else if (window.innerWidth < 1300 && window.innerWidth > 600) {
-    map.setZoom(7.6);
-  } else if (window.innerWidth < 600) {
-    map.setZoom(7.1);
+  if (is_safari()) {
+    if (window.innerWidth > 1300) {
+      map.setZoom(8.1);
+    } else if (window.innerWidth < 1300 && window.innerWidth > 600) {
+      map.setZoom(7.6);
+    } else if (window.innerWidth < 600) {
+      map.setZoom(7.1);
+    }
   }
+  
 }
 function remove_outage_markers() {
   for (let a = 0; a < marker_clusters.length; a++) {

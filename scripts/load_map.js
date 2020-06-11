@@ -74,6 +74,7 @@ function add_outages_to_map() {
   }
   setTimeout(function () {
     jQuery(window).trigger("resize");
+    alert("Go");
   }, 1000);
 }
 

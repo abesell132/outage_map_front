@@ -46,23 +46,30 @@ function set_region_events() {
 
     let latitude = event.latLng.lat();
     let longitude = event.latLng.lng();
-    if (info_windows) {
-      close_info_windows();
-    }
-    let info_window_content = get_info_window_content(event.feature);
-    let infowindow = new google.maps.InfoWindow();
-    infowindow.setContent(info_window_content);
-    infowindow.setPosition(new google.maps.LatLng(latitude, longitude));
-    infowindow.setOptions({
-      pixelOffset: new google.maps.Size(0, -5),
-    });
-    info_windows.push(infowindow);
-    // Wait .1s and then open Info Window
-    info_windows[0].open(map);
+    open_info_window(latitude, longitude, event.feature);
+  });
+}
+function open_info_window(latitude, longitude, feature) {
+  if (info_windows) {
+    close_info_windows();
+  }
+  let info_window_content = get_info_window_content(event.feature);
+  let infowindow = new google.maps.InfoWindow();
+  infowindow.setContent(info_window_content);
+  infowindow.setPosition(new google.maps.LatLng(latitude, longitude));
+  infowindow.setOptions({
+    pixelOffset: new google.maps.Size(0, -5),
+  });
+  info_windows.push(infowindow);
+  info_info_window_coords = {
+    lat: latitude,
+    lng: longitude,
+  };
+  // Wait .1s and then open Info Window
+  info_windows[0].open(map);
 
-    infowindow.addListener("closeclick", function () {
-      close_info_windows();
-    });
+  infowindow.addListener("closeclick", function () {
+    close_info_windows();
   });
 }
 

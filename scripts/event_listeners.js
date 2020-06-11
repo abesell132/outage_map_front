@@ -67,7 +67,7 @@ function open_info_window(latitude, longitude, feature, reload = 0) {
     lng: longitude,
   };
   if (!reload) {
-    info_window_feature = get_feature_from_event(feature);
+    info_window_feature = get_feature_from_event(feature.getProperty("NAME"));
   } else {
     info_window_feature = feature;
   }

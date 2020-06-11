@@ -103,7 +103,7 @@ function create_marker_clusters(marker_locations) {
   }
 
   let markerCluster = new MarkerClusterer(map, markers, {
-    styles: cluster_styles,
+    // styles: cluster_styles,
   });
 
   marker_clusters.push(markerCluster);

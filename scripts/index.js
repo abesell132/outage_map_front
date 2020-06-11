@@ -17,7 +17,6 @@ function start_map_population(reload) {
         if (!reload) {
           add_region_layers();
         } else {
-          info_windows[0].open(map);
           open_info_window(info_window_coords.lat, info_window_coords.lng, click_features[a], 1);
         }
         checkMapError();
@@ -36,7 +35,7 @@ setInterval(function () {
   console.log("Fetching new outages at: " + dateTime);
   close_info_windows();
   start_map_population(1);
-}, 180000);
+}, 60000);
 
 function checkMapError() {
   jQuery.getJSON("https://www.uppco.com/_uppco-outage-files/sorted/map_error.json", function (data) {

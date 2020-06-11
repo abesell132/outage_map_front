@@ -95,7 +95,6 @@ function get_info_window_content(feature) {
       percentOut = 99.9;
     }
   }
-  // console.log(data_feature)
 
   if (map_view === "county_data") {
     content =
@@ -140,7 +139,6 @@ function get_info_window_content(feature) {
 
 function get_feature_from_event(feature_NAME) {
   for (let a = 0; a < this[map_view].features.length; a++) {
-    console.log(this[map_view].features[a].properties.NAME + " : " + feature_NAME);
     if (this[map_view].features[a].properties.NAME == feature_NAME) {
       let data_feature = this[map_view].features[a];
       return data_feature;

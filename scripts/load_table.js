@@ -4,8 +4,6 @@ function add_outages_to_table() {
 
   jQuery(".table-body").html("");
   if (map_view === "county_data") {
-    console.log(this[map_view].features);
-    console.log(this[map_view].features.length);
     for (let a = 0; a < this[map_view].features.length; a++) {
       if (this[map_view].features[a].properties.CustomersOut > 0) {
         var percentOut = parseFloat(100 - (this[map_view].features[a].properties.CustomersOut / this[map_view].features[a].properties.TotalCustomers) * 100).toFixed(1);

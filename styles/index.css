@@ -2,7 +2,7 @@
        * element that contains the map. */
 
 .data-layer-name {
-  white-space: nowrap;
+  white-space: break-spaces;
 }
 .no-margin p {
   margin-bottom: 0;
@@ -172,7 +172,8 @@ body {
     bottom: 20px;
     width: calc(100% - 80px) !important;
     z-index: 222;
-    height: 200px;
+    height: 250px;
+    padding: 10px;
     top: auto;
     transform: translate(0, 0);
   }

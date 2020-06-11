@@ -24,8 +24,8 @@ function start_map_population(reload) {
           }
         }
         checkMapError();
-        add_outages_to_map();
         add_outages_to_table();
+        add_outages_to_map();
       });
     });
   });

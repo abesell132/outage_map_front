@@ -143,7 +143,6 @@ function close_info_windows() {
     info_windows[a].close();
   }
   info_windows = [];
-  info_window_feature = undefined;
 }
 
 function reset_click_styles() {

@@ -35,7 +35,7 @@ setInterval(function () {
   console.log("Fetching new outages at: " + dateTime);
   close_info_windows();
   start_map_population(1);
-}, 60000);
+}, 10000);
 
 function checkMapError() {
   jQuery.getJSON("https://www.uppco.com/_uppco-outage-files/sorted/map_error.json", function (data) {
